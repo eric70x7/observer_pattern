@@ -17,17 +17,12 @@ test_observer::~test_observer() {
 
 TEST(ObserverSuite, use_counts) {
     std::shared_ptr<concreteSubject> s(new concreteSubject);
-    std::shared_ptr<concreteObserverA> a(new concreteObserverA);
-    std::shared_ptr<concreteObserverB> b(new concreteObserverB);
-
-    EXPECT_EQ(1, s.use_count());
-    EXPECT_EQ(1, a.use_count());
-    EXPECT_EQ(1, b.use_count());
-
-    a->SetSubject(s);
-    b->SetSubject(s);
+    std::shared_ptr<concreteObserverA> a(new concreteObserverA(s));
+    std::shared_ptr<concreteObserverB> b(new concreteObserverB(s));
 
     EXPECT_EQ(3, s.use_count());
+    EXPECT_EQ(1, a.use_count());
+    EXPECT_EQ(1, b.use_count());
 
     s->Attach(a);
     EXPECT_EQ(2, a.use_count());
@@ -50,13 +45,8 @@ TEST(ObserverSuite, use_counts) {
 
 TEST(ObserverSuite, state_propogation) {
     std::shared_ptr<concreteSubject> s(new concreteSubject);
-    std::shared_ptr<concreteObserverA> a(new concreteObserverA);
-    std::shared_ptr<concreteObserverB> b(new concreteObserverB);
-
-    // Give the concrete observers a reference to the concrete subject
-    // so that they can retrieve state information
-    a->SetSubject(s);
-    b->SetSubject(s);
+    std::shared_ptr<concreteObserverA> a(new concreteObserverA(s));
+    std::shared_ptr<concreteObserverB> b(new concreteObserverB(s));
 
     // initial state
     s->Attach(a);

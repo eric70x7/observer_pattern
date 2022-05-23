@@ -2,17 +2,16 @@
 
 #include "./concreteObserverA.h"
 #include <iostream>
+#include <memory>
 
-concreteObserverA::concreteObserverA() {
+concreteObserverA::concreteObserverA(std::shared_ptr<concreteSubject> s) :
+    subject(s)
+{
 }
 
 concreteObserverA::~concreteObserverA() {
 }
 
 void concreteObserverA::Update() {
-    if (subject != nullptr) {
-        state = subject->GetState();
-    } else {
-        // Handle error
-    }
+    state = subject->GetState();
 }

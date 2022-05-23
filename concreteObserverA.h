@@ -11,7 +11,7 @@
 
 class concreteObserverA : public observer {
  public:
-    concreteObserverA();
+    explicit concreteObserverA(std::shared_ptr<concreteSubject> s);
     ~concreteObserverA();
 
     void Update() override;
@@ -20,12 +20,8 @@ class concreteObserverA : public observer {
         return state;
     }
 
-    void SetSubject(std::shared_ptr<concreteSubject> s) {
-        subject = s;
-    }
-
  private:
-    std::shared_ptr<concreteSubject> subject = nullptr;
+    std::shared_ptr<concreteSubject> subject;
     concreteSubject::concreteSubjectState state;
 };
 

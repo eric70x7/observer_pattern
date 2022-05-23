@@ -2,8 +2,11 @@
 
 #include "./concreteObserverB.h"
 #include <iostream>
+#include <memory>
 
-concreteObserverB::concreteObserverB() {
+concreteObserverB::concreteObserverB(std::shared_ptr<concreteSubject> s) :
+    subject(s)
+{
 }
 
 concreteObserverB::~concreteObserverB() {
