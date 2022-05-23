@@ -10,5 +10,5 @@ concreteObserverB::~concreteObserverB() {
 }
 
 void concreteObserverB::Update() {
-    update_count++;
+    state = subject->GetState();
 }

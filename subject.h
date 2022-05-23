@@ -17,6 +17,8 @@ class subject {
 
     void Attach(std::shared_ptr<observer>);
     void Detach(std::shared_ptr<observer>);
+
+ protected:
     void Notify();
 
  private:

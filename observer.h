@@ -12,10 +12,7 @@ class observer {
 
     virtual void Update() = 0;
 
-    int GetUpdateCount() { return update_count; }
-
  protected:
-    int update_count = 0;
 };
 
 #endif  // OBSERVER_H_

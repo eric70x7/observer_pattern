@@ -10,5 +10,9 @@ concreteObserverA::~concreteObserverA() {
 }
 
 void concreteObserverA::Update() {
-    update_count++;
+    if (subject != nullptr) {
+        state = subject->GetState();
+    } else {
+        // Handle error
+    }
 }

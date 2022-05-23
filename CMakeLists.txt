@@ -12,7 +12,8 @@ add_library(observer
             concreteObserverB.cpp)
 
 add_library(subject 
-            subject.cpp)
+            subject.cpp
+            concreteSubject.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
