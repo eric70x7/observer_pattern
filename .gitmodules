@@ -1,0 +1,3 @@
+[submodule ".devcontainer"]
+	path = .devcontainer
+	url = git@gitlab.psg-inc.net:ericjones/devcontainer.git
